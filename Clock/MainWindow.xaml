@@ -1,0 +1,29 @@
+﻿<Window x:Class="Clock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clock"
+        mc:Ignorable="d"
+        Title="Clock - Tamriel Standard Time by Arne 'Tyx' Rantzen" Height="200" Width="400">
+    <StackPanel>
+        <Label
+            Content="ClockLabel"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Center"
+            Margin="10,10,10,10"
+            VerticalAlignment="Center"
+            Padding="5"
+            FontSize="30"
+            x:Name="clockLabel"/>
+        <Label
+            Content="MoonLabel"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Center"
+            Margin="10,10,10,10"
+            VerticalAlignment="Center"
+            Padding="5"
+            FontSize="30"
+            x:Name="moonLabel"/>
+    </StackPanel>
+</Window>
