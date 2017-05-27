@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clock"
         mc:Ignorable="d"
-        Title="Clock - Tamriel Standard Time by Arne 'Tyx' Rantzen" Height="200" Width="400">
+        Title="Clock - Tamriel Standard Time by Arne 'Tyx' Rantzen" Height="180" Width="500">
     <StackPanel>
         <Label
             Content="ClockLabel"
