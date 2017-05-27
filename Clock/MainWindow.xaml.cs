@@ -36,7 +36,7 @@ namespace Clock {
 
         private void Update(object sender, EventArgs eArgs) {
             string time = tst.Hour + ":" + tst.Minute + ":" + tst.Second;
-            if (DateTime.TryParseExact(time, "HH:mm:ss",
+            if (DateTime.TryParseExact(time, "H:m:s",
                                         CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateTime)) {
                 time = dateTime.ToString("T", CultureInfo.CurrentCulture);
             } else {
