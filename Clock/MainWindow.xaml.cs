@@ -34,7 +34,11 @@ namespace Clock {
         }
 
         private void Update(object sender, EventArgs eArgs) {
-            clockLabel.Content = tst.Hour + ":" + tst.Minute + ":" + tst.Second + " " + tst.Day + "." + tst.Month + "." + tst.Era + "E " + tst.Year;
+            string time = tst.Hour + ":" + tst.Minute + ":" + tst.Second;
+            DateTime dateTime = DateTime.ParseExact(time, "HH:mm:ss",
+                                        System.Globalization.CultureInfo.InvariantCulture);
+            clockLabel.Content = dateTime.ToString("T", System.Globalization.CultureInfo.CurrentCulture)
+            + " " + tst.Day + "." + tst.Month + "." + tst.Era + "E " + tst.Year;
             moonLabel.Content = tst.moonState + " " + Math.Round(tst.moonWay, 2) * 100 + "% finished";
             CommandManager.InvalidateRequerySuggested();
         }
