@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Globalization;
 
 namespace Clock {
     /// <summary>
@@ -35,10 +36,13 @@ namespace Clock {
 
         private void Update(object sender, EventArgs eArgs) {
             string time = tst.Hour + ":" + tst.Minute + ":" + tst.Second;
-            DateTime dateTime = DateTime.ParseExact(time, "HH:mm:ss",
-                                        System.Globalization.CultureInfo.InvariantCulture);
-            clockLabel.Content = dateTime.ToString("T", System.Globalization.CultureInfo.CurrentCulture)
-            + " " + tst.Day + "." + tst.Month + "." + tst.Era + "E " + tst.Year;
+            if (DateTime.TryParseExact(time, "HH:mm:ss",
+                                        CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateTime)) {
+                time = dateTime.ToString("T", CultureInfo.CurrentCulture);
+            } else {
+                Console.WriteLine(time);
+            }
+            clockLabel.Content = time + " " + tst.Day + "." + tst.Month + "." + tst.Era + "E" + tst.Year;
             moonLabel.Content = tst.moonState + " " + Math.Round(tst.moonWay, 2) * 100 + "% finished";
             CommandManager.InvalidateRequerySuggested();
         }
